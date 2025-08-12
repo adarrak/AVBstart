@@ -1,6 +1,6 @@
 package com.example.avbstart
 
-import android.graphics.Color.*
+import Standart_Items.ButtonExample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,56 +8,56 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.avbstart.ui.theme.AVBstartTheme
-import com.example.avbstart.ui.theme.myAmbientColor
 import com.example.avbstart.ui.theme.myBackground
 import com.example.avbstart.ui.theme.myBorderColor
-import java.nio.file.WatchEvent
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+//необходимо переделать реализацию перехода экранов
+
+            val screenNumbers = remember { listOf(0, 1, 2, 3) }
+            val userNumberPage: Int = 1
             Surface(
                 modifier = Modifier.fillMaxSize(),
                 color = myBackground
             ) {
 
                 UserStatusBar()
-                ScreenRegistrationStep1()
-                //AppName()
-                //AppLogo()
-               // RegisterButtons()
+                when (screenNumbers[userNumberPage]) {
+                    0 -> {
+                        AppName()
+                        AppLogo()
+                        RegisterButtons()
+                    }
+
+                    1 -> {
+                        ScreenRegistrationStep1()
+                    }
+                }
 
 
             }
@@ -78,7 +78,7 @@ fun UserStatusBar(
 
 @Composable
 fun AppName() {
-    Box() {
+    Box {
         Text(
             text = "Sign UP",
             fontSize = 70.sp,
@@ -86,7 +86,7 @@ fun AppName() {
             modifier = Modifier.padding(top = 154.dp, start = 67.dp)
         )
     }
-    Box() {
+    Box {
         Text(
             text = "report",
             fontSize = 35.sp,
@@ -110,13 +110,13 @@ fun AppLogo() {
                 .height(236.dp)
                 .width(236.dp)
                 .clip(shape = RoundedCornerShape(16.dp))
-                .shadow(
+                /*.shadow(
                     elevation = 2.dp,
                     ambientColor = myAmbientColor,
-                    clip = false,
+                    clip = true,
                     spotColor = myAmbientColor,
                     shape = RoundedCornerShape(2.dp)
-                )
+                )*/
                 .border(
                     width = 1.dp,
                     color = myBorderColor,
@@ -138,6 +138,7 @@ fun AppLogo() {
 
 @Composable
 fun RegisterButtons() {
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -146,8 +147,13 @@ fun RegisterButtons() {
 
 
     ) {
-        ButtonExample("Login")
-        ButtonExample("Sign up", paddingTopButton = 32.dp)
+        ButtonExample(
+            titleName = "Login"
+        )
+        ButtonExample(
+            titleName = "Sign up",
+            paddingTopButton = 32.dp
+        )
 
     }
 }
