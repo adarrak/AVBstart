@@ -141,8 +141,7 @@ fun RegisterButtons() {
 
     ) {
         ButtonExample(
-            titleName = "Login",
-            onClick = {}
+            titleName = "Login"
         )
         ButtonExample(
             titleName = "Sign up",
