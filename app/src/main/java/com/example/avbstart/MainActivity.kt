@@ -19,6 +19,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,15 +41,15 @@ class MainActivity : ComponentActivity() {
         setContent {
 //необходимо переделать реализацию перехода экранов
 
-            val screenNumbers = remember { listOf(0, 1, 2, 3) }
-            val userNumberPage: Int = 0
+
+            val userNumberPage by remember { mutableStateOf(0) }
             Surface(
                 modifier = Modifier.fillMaxSize(),
                 color = myBackground
             ) {
 
                 UserStatusBar()
-                when (screenNumbers[userNumberPage]) {
+                when (userNumberPage) {
                     0 -> {
                         AppName()
                         AppLogo()
@@ -58,8 +60,6 @@ class MainActivity : ComponentActivity() {
                         ScreenRegistrationStep1()
                     }
                 }
-
-
             }
         }
     }
@@ -110,13 +110,6 @@ fun AppLogo() {
                 .height(236.dp)
                 .width(236.dp)
                 .clip(shape = RoundedCornerShape(16.dp))
-                /*.shadow(
-                    elevation = 2.dp,
-                    ambientColor = myAmbientColor,
-                    clip = true,
-                    spotColor = myAmbientColor,
-                    shape = RoundedCornerShape(2.dp)
-                )*/
                 .border(
                     width = 1.dp,
                     color = myBorderColor,
@@ -148,7 +141,8 @@ fun RegisterButtons() {
 
     ) {
         ButtonExample(
-            titleName = "Login"
+            titleName = "Login",
+            onClick = {}
         )
         ButtonExample(
             titleName = "Sign up",
