@@ -1,6 +1,7 @@
 package com.example.avbstart
 
 import Standart_Items.RoleCard
+import android.view.Surface
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,9 +32,14 @@ import com.example.avbstart.ui.theme.myGradientColor1
 
 @Composable
 fun ScreenRegistrationStep1() {
-    ChooseRole()
-    DrawLogo()
-
+    Surface(
+        modifier = Modifier
+            .fillMaxSize(),
+            color = myBackground
+    ) {
+        ChooseRole()
+        DrawLogo()
+    }
 }
 
 @Composable
@@ -141,7 +148,7 @@ fun DrawLogo() {
                 modifier = Modifier
                     .padding(top = 24.dp)
                     .fillMaxSize()
-                    //.background(Color.Red)
+                //.background(Color.Red)
             ) {
 
                 Image(
