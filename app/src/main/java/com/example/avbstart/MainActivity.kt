@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
 //необходимо переделать реализацию перехода экранов
 
             val screenNumbers = remember { listOf(0, 1, 2, 3) }
-            val userNumberPage: Int = 1
+            val userNumberPage: Int = 0
             Surface(
                 modifier = Modifier.fillMaxSize(),
                 color = myBackground
