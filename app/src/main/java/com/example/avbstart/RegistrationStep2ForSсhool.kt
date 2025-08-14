@@ -34,14 +34,38 @@ import com.example.avbstart.ui.theme.myGradientColor1
 @Composable
 fun ScreenRegistrationStep2() {
 
-    Surface(
-        modifier = Modifier
-            .fillMaxSize(),
-        color = myBackground
-    ) {
-        AskFormForRegistrationStep2()
-        DrawLogo()
+    Scaffold()
+    { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = myBackground)
+                .padding(innerPadding)
+
+        ) {
+            LazyColumn(
+
+            ) {
+                item { DrawLogo() }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+                item { RegistrationTextField(nameOfField = "First Name") }
+
+            }
+
+
+        }
     }
+
 }
 
 @Composable
@@ -120,15 +144,16 @@ fun AskFormForRegistrationStep2() {
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
                     BlueButton(titleName = "Confirm")
-                    Text(text = "By pressing Register, " +
-                            "you are agree to our Terms&\n" +
-                            "Conditions and Privacy Policy",
+                    Text(
+                        text = "By pressing Register, " +
+                                "you are agree to our Terms&\n" +
+                                "Conditions and Privacy Policy",
                         fontSize = 11.sp,
                         textAlign = TextAlign.Center,
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
 
-                        )
+                    )
 
                 }
             }
@@ -137,7 +162,7 @@ fun AskFormForRegistrationStep2() {
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview
 fun ScreenRegistrationStep2Prew() {
     ScreenRegistrationStep2()
 }
