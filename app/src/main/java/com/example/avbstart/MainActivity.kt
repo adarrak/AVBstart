@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
             ) { innerPadding ->
                 NavHost(
                     navController = navController,
-                    startDestination = "RegistrationStep2",
+                    startDestination = "MainScreen",
                     modifier = Modifier
                         .padding(paddingValues = innerPadding)
                 ) {

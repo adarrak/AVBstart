@@ -9,7 +9,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
@@ -33,7 +35,7 @@ import com.example.avbstart.ui.theme.myGradientColor1
 
 @Composable
 fun ScreenRegistrationStep2() {
-
+val scrollState = rememberScrollState()
     Scaffold()
     { innerPadding ->
         Column(
@@ -43,29 +45,17 @@ fun ScreenRegistrationStep2() {
                 .padding(innerPadding)
 
         ) {
-            LazyColumn(
-
+            Column(
+                modifier = Modifier.verticalScroll(scrollState)
             ) {
-                item { DrawLogo() }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
-                item { RegistrationTextField(nameOfField = "First Name") }
+                Box() {
 
+                    AskFormForRegistrationStep2()
+                    DrawLogo()
+                }
             }
-
-
         }
     }
-
 }
 
 @Composable
@@ -87,7 +77,7 @@ fun AskFormForRegistrationStep2() {
             containerColor = myBackground
         )
     ) {
-        LazyColumn(
+        Column(
             modifier = Modifier
                 .padding(
                     top = 16.dp,
@@ -97,69 +87,69 @@ fun AskFormForRegistrationStep2() {
                 )
                 .fillMaxSize()
         ) {
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.TopEnd
-                ) {
-                    Text(
-                        text = "Step 2/4",
-                        fontSize = 14.sp,
-                        color = myGradientColor1,
 
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.TopEnd
+            ) {
+                Text(
+                    text = "Step 2/4",
+                    fontSize = 14.sp,
+                    color = myGradientColor1,
 
-                        )
-                }
-            }
-            item {
-                Box(
-
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 47.dp),
-                    contentAlignment = Alignment.TopCenter
-                ) {
-                    Text(
-                        text = "Enter your details to\n" +
-                                "complete the registration",
-                        textAlign = TextAlign.Center,
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-            }
-            item { RegistrationTextField(nameOfField = "First Name") }
-            item { RegistrationTextField(nameOfField = "Last Name") }
-            item { RegistrationTextField(nameOfField = "E-mail") }
-            item { RegistrationTextField(nameOfField = "School Name") }
-            item { RegistrationTextField(nameOfField = "Phone Number") }
-            item { RegistrationTextField(nameOfField = "Password") }
-            item {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 24.dp)
-                        .height(114.dp),
-                    verticalArrangement = Arrangement.SpaceBetween
-                ) {
-                    BlueButton(titleName = "Confirm")
-                    Text(
-                        text = "By pressing Register, " +
-                                "you are agree to our Terms&\n" +
-                                "Conditions and Privacy Policy",
-                        fontSize = 11.sp,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .align(Alignment.CenterHorizontally)
 
                     )
+            }
 
-                }
+
+            Box(
+
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 47.dp),
+                contentAlignment = Alignment.TopCenter
+            ) {
+                Text(
+                    text = "Enter your details to\n" +
+                            "complete the registration",
+                    textAlign = TextAlign.Center,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
+            RegistrationTextField(nameOfField = "First Name")
+            RegistrationTextField(nameOfField = "Last Name")
+            RegistrationTextField(nameOfField = "E-mail")
+            RegistrationTextField(nameOfField = "School Name")
+            RegistrationTextField(nameOfField = "Phone Number")
+            RegistrationTextField(nameOfField = "Password")
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp)
+                    .height(114.dp),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                BlueButton(titleName = "Confirm")
+                Text(
+                    text = "By pressing Register, " +
+                            "you are agree to our Terms&\n" +
+                            "Conditions and Privacy Policy",
+                    fontSize = 11.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+
+                )
+
             }
         }
     }
 }
+
 
 @Composable
 @Preview
