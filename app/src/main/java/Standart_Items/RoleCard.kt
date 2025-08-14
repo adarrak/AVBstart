@@ -23,7 +23,13 @@ import com.example.avbstart.ui.theme.myBorderColor
 import com.example.avbstart.ui.theme.myColorOtherText
 
 @Composable
-fun RoleCard(nameOfRole: String, imageResource: Int) {
+fun RoleCard(
+    nameOfRole: String,
+    imageResource: Int,
+    onClick: () -> Unit = {
+        Log.d("myLog", "нажата $nameOfRole")
+    }
+) {
     Card(
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(width = 1.dp, color = myBorderColor),
@@ -36,9 +42,7 @@ fun RoleCard(nameOfRole: String, imageResource: Int) {
         modifier = Modifier
             .fillMaxWidth()
             .height(height = 131.dp)
-            .clickable{
-                Log.d("myLog","нажата $nameOfRole")
-            }
+            .clickable { onClick() }
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -57,8 +61,7 @@ fun RoleCard(nameOfRole: String, imageResource: Int) {
                     .fillMaxWidth()
                     .height(height = 80.dp),
                 contentAlignment = Alignment.Center
-
-            )//id = R.drawable.univer
+            )
             {
                 Image(
                     painter = painterResource(imageResource),
@@ -72,8 +75,6 @@ fun RoleCard(nameOfRole: String, imageResource: Int) {
                 modifier = Modifier
                     .padding(bottom = 12.dp)
             )
-
-
         }
     }
 }

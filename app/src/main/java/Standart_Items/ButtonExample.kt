@@ -27,7 +27,7 @@ import com.example.avbstart.ui.theme.myTextColor
 fun ButtonExample(
     titleName: String = "Title",
     onClick: () -> Unit = {
-        Log.d("myLog","Нажата кнопка $titleName")
+        Log.d("myLog", "Нажата кнопка $titleName")
     },
     paddingTopButton: Dp = 0.dp
 
@@ -54,11 +54,13 @@ fun ButtonExample(
 
 
     ) {
-        Text(text = titleName,
+        Text(
+            text = titleName,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
             letterSpacing = 0.05.em,
-            modifier = Modifier)
+            modifier = Modifier
+        )
     }
 }
 

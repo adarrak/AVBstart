@@ -20,3 +20,8 @@ val myGradientColor2 = Color(0xFFDD6F4F)
 val myGradientColor3 = Color(0xFF4CC5B1)
 val myAmbientColor = Color(0xFF3D53BB)
 val myColorOtherText = Color(0xFF202021)
+val myBackgroundNotAktive = Color(0xFF92BEE7)
+val myBackgroundAktive = Color(0xFF4C93D5)
+
+val myTextFieldBackground = Color(0xFFE7F1FA)
+val myWhiteText = Color(0xFFF6F7FF)
