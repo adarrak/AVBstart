@@ -11,7 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.avbstart.ui.theme.*
+import ui.screens.main.MainScreen
+import ui.screens.registration.ScreenRegistrationStep1
+import ui.screens.registration.ScreenRegistrationStep2
+import ui.theme.myBackground
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +48,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable(route = "MainScreen") {
                         MainScreen(
-                            navController,
-                            innerPadding = innerPadding
+                            navController = navController,
                         )
                     }
                     composable(route = "RegistrationStep1") {

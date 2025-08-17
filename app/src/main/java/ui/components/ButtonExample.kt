@@ -1,4 +1,4 @@
-package Standart_Items
+package ui.components
 
 import android.util.Log
 import androidx.compose.foundation.BorderStroke
@@ -17,10 +17,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import com.example.avbstart.ui.theme.myGradientColor1
-import com.example.avbstart.ui.theme.myGradientColor2
-import com.example.avbstart.ui.theme.myGradientColor3
-import com.example.avbstart.ui.theme.myTextColor
+import ui.theme.myGradientColor1
+import ui.theme.myGradientColor2
+import ui.theme.myGradientColor3
+import ui.theme.myTextColor
 
 
 @Composable

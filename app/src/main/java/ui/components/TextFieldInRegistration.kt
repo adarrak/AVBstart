@@ -1,4 +1,4 @@
-package Standart_Items
+package ui.components
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -14,7 +14,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import com.example.avbstart.ui.theme.*
+import ui.theme.myBackground
+import ui.theme.myColorOtherText
+import ui.theme.myGradientColor1
+import ui.theme.myGradientColor2
+import ui.theme.myGradientColor3
+import ui.theme.myTextFieldBackground
 
 @Composable
 fun RegistrationTextField(

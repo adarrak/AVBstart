@@ -1,6 +1,5 @@
-package com.example.avbstart
+package ui.screens.registration
 
-import Standart_Items.*
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -20,9 +19,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.avbstart.ui.theme.myBackground
-import com.example.avbstart.ui.theme.myBorderColor
-import com.example.avbstart.ui.theme.myGradientColor1
+import ui.components.BlueButton
+import ui.components.RegistrationTextField
+import ui.theme.myBackground
+import ui.theme.myBorderColor
+import ui.theme.myGradientColor1
 
 @Composable
 fun ScreenRegistrationStep2() {

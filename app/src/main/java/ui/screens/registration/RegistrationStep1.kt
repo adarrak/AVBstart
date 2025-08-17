@@ -1,6 +1,6 @@
-package com.example.avbstart
+package ui.screens.registration
 
-import Standart_Items.RoleCard
+import ui.components.RoleCard
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.Box
@@ -10,36 +10,44 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Text
 import androidx.compose.ui.*
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.avbstart.ui.theme.myBackground
-import com.example.avbstart.ui.theme.myBorderColor
-import com.example.avbstart.ui.theme.myGradientColor1
+import com.example.avbstart.R
+import ui.components.BoxWithLogo
+import ui.theme.*
+
 
 @Composable
 fun ScreenRegistrationStep1(navController: NavController) {
+
+
     Surface(
         modifier = Modifier
             .fillMaxSize(),
         color = myBackground
     ) {
         ChooseRole(navController)
-        DrawLogo()
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 71.dp),
+            contentAlignment = Alignment.TopCenter
+        ) {
+            BoxWithLogo(icon = R.drawable.register_logo_avb)
+        }
     }
 }
 
@@ -87,7 +95,7 @@ fun ChooseRole(navController: NavController) {
                 )
 
                 Text(
-                    text = "Select your role\nfor registration",
+                    text = stringResource(R.string.chose_role_text),
                     modifier = Modifier
                         .padding(top = 80.dp)
                         .align(Alignment.Center),
@@ -107,18 +115,18 @@ fun ChooseRole(navController: NavController) {
 
             ) {
                 RoleCard(
-                    nameOfRole = "School or University",
+                    nameOfRole = stringResource(R.string.school_or_university),
                     imageResource = R.drawable.univer,
                     onClick = {
                         navController.navigate("RegistrationStep2")
                     }
                 )
                 RoleCard(
-                    nameOfRole = "Founder",
+                    nameOfRole = stringResource(R.string.founder),
                     imageResource = R.drawable.idea_1
                 )
                 RoleCard(
-                    nameOfRole = "Co-builder",
+                    nameOfRole = stringResource(R.string.co_builder),
                     imageResource = R.drawable.hat1
                 )
             }
@@ -153,7 +161,6 @@ fun DrawLogo() {
                 modifier = Modifier
                     .padding(top = 24.dp)
                     .fillMaxSize()
-                //.background(Color.Red)
             ) {
 
                 Image(
