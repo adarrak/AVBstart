@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ui.components.BlueButton
+import ui.components.DefaultCard
 import ui.components.RegistrationTextField
 import ui.theme.myBackground
 import ui.theme.myBorderColor
@@ -40,10 +41,10 @@ val scrollState = rememberScrollState()
             Column(
                 modifier = Modifier.verticalScroll(scrollState)
             ) {
-                Box() {
+                Box {
 
                     AskFormForRegistrationStep2()
-                    DrawLogo()
+                    //DrawLogo()
                 }
             }
         }
@@ -52,22 +53,14 @@ val scrollState = rememberScrollState()
 
 @Composable
 fun AskFormForRegistrationStep2() {
-    Card(
+    DefaultCard (
         modifier = Modifier
             .padding(
                 top = 140.dp,
                 start = 16.dp,
                 end = 16.dp,
                 bottom = 61.dp
-            ),
-        shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(width = 1.dp, color = myBorderColor),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 2.dp
-        ),
-        colors = CardDefaults.cardColors(
-            containerColor = myBackground
-        )
+            )
     ) {
         Column(
             modifier = Modifier

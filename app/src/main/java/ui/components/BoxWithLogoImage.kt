@@ -24,6 +24,23 @@ fun BoxWithLogo(
         modifier = Modifier
             .fillMaxWidth()
     ) {
+        DefaultCard (
+            modifier = Modifier
+                .size(sizeOfBox)
+                .align(Alignment.Center)
+        ){
+            Image(
+                painter = painterResource(icon),
+                contentDescription = "logo",
+                modifier = Modifier
+                    .padding(top = 37.dp)
+                    .fillMaxWidth()
+                    .size(sizeOfImage)
+                    .align(Alignment.Center)
+            )
+        }
+
+        /*
         Box(
             modifier = Modifier
                 .size(sizeOfBox)
@@ -49,5 +66,9 @@ fun BoxWithLogo(
                     .align(Alignment.Center)
             )
         }
+         */
+
+
+
     }
 }

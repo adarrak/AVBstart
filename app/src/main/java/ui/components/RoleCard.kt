@@ -31,26 +31,19 @@ fun RoleCard(
         Log.d("myLog", "нажата $nameOfRole")
     }
 ) {
-    Card(
-        shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(width = 1.dp, color = myBorderColor),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 10.dp
-        ),
-        colors = CardDefaults.cardColors(
-            containerColor = myBackground
-        ),
+    DefaultCard(
         modifier = Modifier
             .fillMaxWidth()
             .height(height = 131.dp)
-            .clip(shape = RoundedCornerShape(16.dp))
             .clickable { onClick() }
+
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
                 .fillMaxSize()
+
         )
         {
             Box(

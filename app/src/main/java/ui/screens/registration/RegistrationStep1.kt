@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Text
 import androidx.compose.ui.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.avbstart.R
 import ui.components.BoxWithLogo
+import ui.components.DefaultCard
 import ui.theme.*
 
 
@@ -55,7 +57,7 @@ fun ScreenRegistrationStep1(navController: NavController) {
 @Composable
 fun ChooseRole(navController: NavController) {
 
-    Card(
+    DefaultCard (
         modifier = Modifier
             .padding(
                 top = 140.dp,
@@ -63,16 +65,7 @@ fun ChooseRole(navController: NavController) {
                 end = 16.dp,
                 bottom = 88.dp
             )
-            .fillMaxSize(),
-        shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(width = 1.dp, color = myBorderColor),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 2.dp
-        ),
-        colors = CardDefaults.cardColors(
-            containerColor = myBackground
-        ),
-    ) {
+    ){
         Column(
             modifier = Modifier
 
@@ -81,17 +74,18 @@ fun ChooseRole(navController: NavController) {
             //Box с text = "Step 1/4" и text = "Select your role for registration"
             Box(
                 modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp)
+                    .padding( 16.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.TopEnd
             )
             {
                 Text(
-                    text = "Step 1/4",
+                    text = stringResource(R.string.registration_step1_of_4),
                     fontSize = 14.sp,
                     color = myGradientColor1,
                     modifier = Modifier
                         .padding(top = 16.dp)
+
                 )
 
                 Text(
@@ -133,45 +127,6 @@ fun ChooseRole(navController: NavController) {
         }
 
 
-    }
-}
-
-@Composable
-fun DrawLogo() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 71.dp),
-        contentAlignment = Alignment.TopCenter
-    ) {
-        Card(
-            modifier = Modifier
-                .size(width = 103.dp, height = 103.dp),
-            border = BorderStroke(width = 1.dp, color = myBorderColor),
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = myBackground
-            ),
-            elevation = CardDefaults.cardElevation(
-                defaultElevation = 2.dp
-            ),
-        )
-        {
-            Box(
-                modifier = Modifier
-                    .padding(top = 24.dp)
-                    .fillMaxSize()
-            ) {
-
-                Image(
-                    painter = painterResource(id = R.drawable.register_logo_avb),
-                    contentDescription = "Logo Image",
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
-
-
-        }
     }
 }
 
